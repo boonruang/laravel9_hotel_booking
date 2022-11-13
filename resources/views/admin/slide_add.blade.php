@@ -1,5 +1,5 @@
 @extends('admin.layout.app')
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 @section('heading','Add Slide')
 
 @section('right_top_button')  
@@ -17,8 +17,11 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mb-4">
+                                    <div class="mb-3">
+                                        <img id="showImage" class="rounded" style="width:200px" src="{{url('uploads/no_image.jpg') }}" alt="Card image cap">
+                                    </div>
                                     <label class="form-label">Photo *</label>
-                                    <input type="file" name="photo" >
+                                    <input id="image" type="file" name="photo" >
                                 </div>
                                 <div class="mb-4">
                                     <label class="form-label">Heading</label>
@@ -49,4 +52,16 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#image').change(function(e){
+            var reader = new FileReader();
+            reader.onload = function(e){
+                $('#showImage').attr('src',e.target.result);
+            }
+            reader.readAsDataURL(e.target.files['0']);
+        });
+    });
+</script>  
 @endsection

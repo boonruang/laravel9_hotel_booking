@@ -78,18 +78,18 @@ class AdminSlideController extends Controller
         $obj->button_url = $request->button_url;
         $obj->update();
 
-        return redirect()->route('admin_slide_view')->with('success','Slide is updated successfully');
+        return redirect()->back()->with('success','Slide is updated successfully');
     }    
 
     public function delete($id)
     {
-        $slide = Slide::where('id',$id)->first();
+        $single_data = Slide::where('id',$id)->first();
 
-        unlink(public_path('uploads/slides/'.$slide->photo));
+        unlink(public_path('uploads/slides/'.$single_data->photo));
 
-        $slide->delete();
+        $single_data->delete();
          
-        return redirect()->route('admin_slide_view')->with('success','Slide is deleted successfully');
+        return redirect()->back()->with('success','Slide is deleted successfully');
     }
 
 }
