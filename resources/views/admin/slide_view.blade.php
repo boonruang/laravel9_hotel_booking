@@ -2,6 +2,10 @@
 
 @section('heading','View Slides')
 
+@section('right_top_button')  
+<a href="{{route('admin_slide_add')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Add New</a>
+@endsection
+
 @section('main_content')
 
 <div class="section-body">
@@ -24,9 +28,8 @@
                                 <tr>
                                     <td>1</td>
                                     <td>
-                                        <img src="{{asset('uploads/'.$row->photo)}}" alt="" class="w_200">
+                                        <img src="{{asset('uploads/slides/'.$row->photo)}}" alt="" class="w_200">
                                     </td>
-                                    <td>$100</td>
                                     <td class="pt_10 pb_10">
                                         <a href="" class="btn btn-primary">Edit</a>
                                         <a href="" class="btn btn-danger">Delete</a>
