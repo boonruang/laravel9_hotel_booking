@@ -26,13 +26,13 @@
                                 @foreach ($slides as $row)
                                     
                                 <tr>
-                                    <td>1</td>
+                                    <td>{{$loop->iteration}}</td>
                                     <td>
                                         <img src="{{asset('uploads/slides/'.$row->photo)}}" alt="" class="w_200">
                                     </td>
                                     <td class="pt_10 pb_10">
-                                        <a href="" class="btn btn-primary">Edit</a>
-                                        <a href="" class="btn btn-danger">Delete</a>
+                                        <a href="{{route('admin_slide_edit',$row->id)}}" class="btn btn-primary">Edit</a>
+                                        <a href="{{route('admin_slide_delete',$row->id)}}" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                                 @endforeach

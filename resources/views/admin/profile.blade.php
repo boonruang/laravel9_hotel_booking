@@ -1,5 +1,5 @@
 @extends('admin.layout.app')
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 @section('heading','Edit Profile')
 
 @section('main_content')
@@ -12,14 +12,13 @@
                         @csrf
                         <div class="row">
                             <div class="col-md-3">
-                                <img src="{{asset('uploads/'.Auth::guard('admin')->user()->photo)}}" alt="" class="profile-photo w_100_p">
-                                <input type="file" class="form-control mt_10" name="photo">
+                                <img src="{{asset('uploads/'.Auth::guard('admin')->user()->photo)}}" alt="" class="profile-photo w_100_p" id="showImage">
+                                <input id="image" type="file" class="form-control mt_10" name="photo">
                             </div>
                             <div class="col-md-9">
                                 <div class="mb-4">
                                     <label class="form-label">Name *</label>
                                     <input type="text" class="form-control" name="name" value="{{Auth::guard('admin')->user()->name}}">
-                                  
                                 </div>
                                 <div class="mb-4">
                                     <label class="form-label">Email *</label>
@@ -48,4 +47,17 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#image').change(function(e){
+            var reader = new FileReader();
+            reader.onload = function(e){
+                $('#showImage').attr('src',e.target.result);
+            }
+            reader.readAsDataURL(e.target.files['0']);
+        });
+    });
+</script> 
+
 @endsection

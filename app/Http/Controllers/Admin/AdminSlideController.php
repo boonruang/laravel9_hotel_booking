@@ -43,4 +43,53 @@ class AdminSlideController extends Controller
         return redirect()->route('admin_slide_view')->with('success','Slide is added successfully');
 
     }
+
+    public function edit($id)
+    {
+        $slide_data = Slide::where('id',$id)->first();
+        return view('admin.slide_edit',compact('slide_data'));
+    }
+
+    public function update(Request $request,$id)
+    {
+        $obj = Slide::where('id',$id)->first();
+
+        if($request->hasFile('photo')) {
+            
+            $request->validate([
+                'photo' => 'required|mimes:jpg,jpeg,png,gif|max:2048',
+            ]); 
+            
+            unlink(public_path('uploads/slides/'.$obj ->photo));
+
+            $ext = $request->file('photo')->extension();
+        
+            $final_name = time().'.'.$ext;
+            
+            $request->file('photo')->move(public_path('uploads/slides/'),$final_name);            
+
+            $obj->photo = $final_name;
+        }
+        
+
+        $obj->heading = $request->heading;
+        $obj->text = $request->text;
+        $obj->button_text = $request->button_text;
+        $obj->button_url = $request->button_url;
+        $obj->update();
+
+        return redirect()->route('admin_slide_view')->with('success','Slide is updated successfully');
+    }    
+
+    public function delete($id)
+    {
+        $slide = Slide::where('id',$id)->first();
+
+        unlink(public_path('uploads/slides/'.$slide->photo));
+
+        $slide->delete();
+         
+        return redirect()->route('admin_slide_view')->with('success','Slide is deleted successfully');
+    }
+
 }
