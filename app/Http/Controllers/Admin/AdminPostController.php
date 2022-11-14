@@ -47,4 +47,54 @@ class AdminPostController extends Controller
         return redirect()->back()->with('success','Post is added successfully');
 
     }    
+    public function edit($id)
+    {
+        $post_data = Post::where('id',$id)->first();
+        return view('admin.post_edit',compact('post_data'));
+    }
+
+    public function update(Request $request,$id)
+    {
+        $obj = Post::where('id',$id)->first();
+
+        if($request->hasFile('photo')) {
+            
+            $request->validate([
+                'photo' => 'required|mimes:jpg,jpeg,png,gif|max:2048',
+                'heading' => 'required',
+                'short_content' => 'required',
+                'content' => 'required',                
+            ]); 
+            
+            unlink(public_path('uploads/posts/'.$obj ->photo));
+
+            $ext = $request->file('photo')->extension();
+        
+            $final_name = time().'.'.$ext;
+            
+            $request->file('photo')->move(public_path('uploads/posts/'),$final_name);            
+
+            $obj->photo = $final_name;
+        }
+        
+
+        $obj->heading = $request->heading;
+        $obj->short_content = $request->short_content;
+        $obj->content = $request->content;
+        $obj->update();
+
+        return redirect()->back()->with('success','Post is updated successfully');
+    }    
+
+    public function delete($id)
+    {
+        $single_data = Post::where('id',$id)->first();
+
+        unlink(public_path('uploads/posts/'.$single_data->photo));
+
+        $single_data->delete();
+         
+        return redirect()->back()->with('success','Post is deleted successfully');
+    }    
+
 }
