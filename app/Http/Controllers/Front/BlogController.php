@@ -14,4 +14,10 @@ class BlogController extends Controller
         $post_all = Post::orderBy('id','desc')->paginate(6);
         return view('front.blog',compact('post_all'));
     }
+
+    public function single_post($id)
+    {
+        $single_post_data = Post::where('id',$id)->first();
+        return view('front.post',compact('single_post_data'));
+    }
 }
