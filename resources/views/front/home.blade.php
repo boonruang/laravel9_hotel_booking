@@ -257,7 +257,7 @@
                         </div>
                         <div class="description">
                             <p>
-                                {{$item->comment}}
+                                {!!$item->comment!!}
                             </p>
                         </div>
                     </div>
