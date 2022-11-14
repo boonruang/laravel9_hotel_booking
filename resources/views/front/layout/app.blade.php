@@ -32,7 +32,6 @@
     @yield('main_content')
 
     @include('front.layout.footer')
-		
     @include('front.layout.scripts_footer')
 		
    </body>
