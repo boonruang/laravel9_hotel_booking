@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminSlideController;
 use App\Http\Controllers\Admin\AdminFeatureController;
+use App\Http\Controllers\Admin\AdminTestimonialController;
 
 /* Front */
 Route::get('/',[HomeController::class,'index'])->name('home');
@@ -33,6 +34,7 @@ Route::get('/admin/edit-profile', [AdminProfileController::class,'index'])->name
 
 Route::post('/admin/edit-profile-submit', [AdminProfileController::class,'profile_submit'])->name('admin_profile_submit');
 
+/* Slide */
 Route::get('/admin/slide/view', [AdminSlideController::class,'index'])->name('admin_slide_view')->middleware('admin:admin');
 Route::get('/admin/slide/add', [AdminSlideController::class,'add'])->name('admin_slide_add')->middleware('admin:admin');
 Route::post('/admin/slide/store', [AdminSlideController::class,'store'])->name('admin_slide_store')->middleware('admin:admin');
@@ -40,10 +42,18 @@ Route::get('/admin/slide/edit/{id}', [AdminSlideController::class,'edit'])->name
 Route::post('/admin/slide/update/{id}', [AdminSlideController::class,'update'])->name('admin_slide_update')->middleware('admin:admin');
 Route::get('/admin/slide/delete/{id}', [AdminSlideController::class,'delete'])->name('admin_slide_delete')->middleware('admin:admin');
 
-
+/* Feature */
 Route::get('/admin/feature/view', [AdminFeatureController::class,'index'])->name('admin_feature_view')->middleware('admin:admin');
 Route::get('/admin/feature/add', [AdminFeatureController::class,'add'])->name('admin_feature_add')->middleware('admin:admin');
 Route::post('/admin/feature/store', [AdminFeatureController::class,'store'])->name('admin_feature_store')->middleware('admin:admin');
 Route::get('/admin/feature/edit/{id}', [AdminFeatureController::class,'edit'])->name('admin_feature_edit')->middleware('admin:admin');
 Route::post('/admin/feature/update/{id}', [AdminFeatureController::class,'update'])->name('admin_feature_update')->middleware('admin:admin');
 Route::get('/admin/feature/delete/{id}', [AdminFeatureController::class,'delete'])->name('admin_feature_delete')->middleware('admin:admin');
+
+/* Testimonial */
+Route::get('/admin/testimonial/view', [AdminTestimonialController::class,'index'])->name('admin_testimonial_view')->middleware('admin:admin');
+Route::get('/admin/testimonial/add', [AdminTestimonialController::class,'add'])->name('admin_testimonial_add')->middleware('admin:admin');
+Route::post('/admin/testimonial/store', [AdminTestimonialController::class,'store'])->name('admin_testimonial_store')->middleware('admin:admin');
+Route::get('/admin/testimonial/edit/{id}', [AdminTestimonialController::class,'edit'])->name('admin_testimonial_edit')->middleware('admin:admin');
+Route::post('/admin/testimonial/update/{id}', [AdminTestimonialController::class,'update'])->name('admin_testimonial_update')->middleware('admin:admin');
+Route::get('/admin/testimonial/delete/{id}', [AdminTestimonialController::class,'delete'])->name('admin_testimonial_delete')->middleware('admin:admin');
