@@ -17,10 +17,13 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mb-4">
-                                    <div class="mb-3">
+                                    <label class="form-label">Existing Photo</label>
+                                    <div>
                                         <img id="showImage" class="rounded" style="width:200px" src="{{asset('uploads/testimonials/'.$testimonial_data->photo) }}" alt="Card image cap">
                                     </div>
-                                    <label class="form-label">Photo *</label>
+                                </div>
+                               <div class="mb-4">
+                                    <label class="form-label">New Photo *</label>
                                     <input id="image" type="file" name="photo" >
                                 </div>
                                 <div class="mb-4">
