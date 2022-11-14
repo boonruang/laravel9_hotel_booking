@@ -40,7 +40,7 @@ class AdminSlideController extends Controller
         $obj->button_url = $request->button_url;
         $obj->save();
 
-        return redirect()->route('admin_slide_view')->with('success','Slide is added successfully');
+        return redirect()->back()->with('success','Slide is added successfully');
 
     }
 

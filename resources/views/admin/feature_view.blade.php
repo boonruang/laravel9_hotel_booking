@@ -29,12 +29,12 @@
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>
-                                            <i class="{{$row->icon}}"></i>
+                                            <i class="{{$row->icon}} fz_40"></i>
                                     </td>
                                     <td>{{$row->heading}}</td>
                                     <td class="pt_10 pb_10">
                                         <a href="{{route('admin_feature_edit',$row->id)}}" class="btn btn-primary">Edit</a>
-                                        <a href="{{route('admin_feature_delete',$row->id)}}" class="btn btn-danger">Delete</a>
+                                        <a href="{{route('admin_feature_delete',$row->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?');">Delete</a>
                                     </td>
                                 </tr>
                                 @endforeach

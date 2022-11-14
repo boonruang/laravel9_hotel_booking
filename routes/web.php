@@ -46,4 +46,4 @@ Route::get('/admin/feature/add', [AdminFeatureController::class,'add'])->name('a
 Route::post('/admin/feature/store', [AdminFeatureController::class,'store'])->name('admin_feature_store')->middleware('admin:admin');
 Route::get('/admin/feature/edit/{id}', [AdminFeatureController::class,'edit'])->name('admin_feature_edit')->middleware('admin:admin');
 Route::post('/admin/feature/update/{id}', [AdminFeatureController::class,'update'])->name('admin_feature_update')->middleware('admin:admin');
-Route::get('/admin/feature/delete/{id}', [AdminFeatureController::class,'delete'])->name('admin_slide_delete')->middleware('admin:admin');
+Route::get('/admin/feature/delete/{id}', [AdminFeatureController::class,'delete'])->name('admin_feature_delete')->middleware('admin:admin');
