@@ -25,6 +25,9 @@ class AdminPostController extends Controller
         
         $request->validate([
             'photo' => 'required|mimes:jpg,jpeg,png,gif|max:2048',
+            'heading' => 'required',
+            'short_content' => 'required',
+            'content' => 'required',
         ]);  
         
         $ext = $request->file('photo')->extension();
@@ -38,7 +41,7 @@ class AdminPostController extends Controller
         $obj->heading = $request->heading;
         $obj->short_content = $request->short_content;
         $obj->content = $request->content;
-        $obj->total_view = $request->total_view;
+        $obj->total_view = 1;
         $obj->save();
 
         return redirect()->back()->with('success','Post is added successfully');

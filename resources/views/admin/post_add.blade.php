@@ -29,15 +29,11 @@
                                 </div>
                                 <div class="mb-4">
                                     <label class="form-label">Short Content *</label>
-                                    <input type="text" class="form-control" name="short_content" value="{{old('short_content')}}">
+                                    <textarea name="short_content" class="form-control h_100" cols="30" rows="10">{{old('short_content')}}</textarea>
                                 </div>
                                 <div class="mb-4">
                                     <label class="form-label">Content *</label>
-                                    <textarea name="content" class="form-control h_100" cols="30" rows="10">{{old('content')}}</textarea>
-                                </div>
-                                <div class="mb-4">
-                                    <label class="form-label">Total View *</label>
-                                    <input type="number" class="form-control" name="total_view" value="{{old('total_view')}}">
+                                    <textarea name="content" class="form-control snote" cols="30" rows="10">{{old('content')}}</textarea>
                                 </div>
 
                                 </div>
