@@ -10,7 +10,7 @@ class AdminVideoController extends Controller
 {
     public function index()
     {
-        $videos = Video::orderBy('id','desc')->limit(1)->get();
+        $videos = Video::get();
         return view('admin.video_view',compact('videos'));
     }
 

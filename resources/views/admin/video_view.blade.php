@@ -18,7 +18,7 @@
                             <thead>
                             <tr>
                                 <th>SL</th>
-                                <th>Vide Preview</th>
+                                <th>Video Preview</th>
                                 <th>Caption</th>
                                 <th>Action</th>
                             </tr>
@@ -29,9 +29,10 @@
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>
-                                        <div class="iframe-container1">
+                                        <img src="http://img.youtube.com/vi/{{$row->video_id}}/0.jpg" alt="">
+                                        {{-- <div class="iframe-container1">
                                             <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$row->video_id}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        </div>
+                                        </div> --}}
                                     </td>
                                     <td>{{$row->caption}}</td>
                                     <td class="pt_10 pb_10">
