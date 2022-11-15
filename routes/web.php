@@ -77,6 +77,6 @@ Route::get('/admin/post/delete/{id}', [AdminPostController::class,'delete'])->na
 Route::get('/admin/photo/view', [AdminPhotoController::class,'index'])->name('admin_photo_view')->middleware('admin:admin');
 Route::get('/admin/photo/add', [AdminPhotoController::class,'add'])->name('admin_photo_add')->middleware('admin:admin');
 Route::post('/admin/photo/store', [AdminPhotoController::class,'store'])->name('admin_photo_store')->middleware('admin:admin');
-// Route::get('/admin/photo/edit/{id}', [AdminPhotoController::class,'edit'])->name('admin_photo_edit')->middleware('admin:admin');
-// Route::post('/admin/photo/update/{id}', [AdminPhotoController::class,'update'])->name('admin_photo_update')->middleware('admin:admin');
-// Route::get('/admin/photo/delete/{id}', [AdminPhotoController::class,'delete'])->name('admin_photo_delete')->middleware('admin:admin');
+Route::get('/admin/photo/edit/{id}', [AdminPhotoController::class,'edit'])->name('admin_photo_edit')->middleware('admin:admin');
+Route::post('/admin/photo/update/{id}', [AdminPhotoController::class,'update'])->name('admin_photo_update')->middleware('admin:admin');
+Route::get('/admin/photo/delete/{id}', [AdminPhotoController::class,'delete'])->name('admin_photo_delete')->middleware('admin:admin');

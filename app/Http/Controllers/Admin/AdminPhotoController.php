@@ -30,11 +30,52 @@ class AdminPhotoController extends Controller
         $final_name = time().'.'.$ext;
         $request->file('photo')->move(public_path('uploads/photos'),$final_name);
         
-        $photo = new Photo();
-        $photo->photo = $final_name;
-        $photo->caption = $request->caption;
-        $photo->save();
+        $obj = new Photo();
+        $obj->photo = $final_name;
+        $obj->caption = $request->caption;
+        $obj->save();
 
         return redirect()->back()->with('success','Photo is added successfully');
     }
+
+    public function edit($id)
+    {
+        $photo_single_data = Photo::where('id',$id)->first();
+        return view('admin.photo_edit',compact('photo_single_data'));
+    }
+
+    public function update(Request $request,$id)
+    {
+        $obj = Photo::where('id',$id)->first();
+
+        if($request->hasFile('photo')) {
+            $request->validate([
+                'photo' => 'required|mimes:jpg,jpeg,png,gif|max:2048'
+            ]);
+
+            $ext = $request->file('photo')->extension();
+            $final_name = time().'.'.$ext;
+            $request->file('photo')->move(public_path('uploads/photos'),$final_name);
+
+            unlink(public_path('uploads/photos/'.$obj->photo));
+
+            $obj->photo = $final_name;
+        }
+
+        $obj->caption = $request->caption;
+        $obj->update();
+
+        return redirect()->back()->with('success','Photo is Added successfully');
+    }
+
+    public function delete($id)
+    {
+        $photo_single_data = Photo::where('id',$id)->first();
+        $photo_single_data->delete();
+
+        unlink(public_path('uploads/photos/'.$photo_single_data->photo));
+
+        return redirect()->back()->with('success','Photo is Deleted successfully');
+    }
+
 }
