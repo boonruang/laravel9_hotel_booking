@@ -98,8 +98,8 @@ Route::get('/admin/video/delete/{id}', [AdminVideoController::class,'delete'])->
 
 /* FAQ */
 Route::get('/admin/faq/view', [AdminFaqController::class,'index'])->name('admin_faq_view')->middleware('admin:admin');
-// Route::get('/admin/faq/add', [AdminFaqController::class,'add'])->name('admin_faq_add')->middleware('admin:admin');
-// Route::post('/admin/faq/store', [AdminFaqController::class,'store'])->name('admin_faq_store')->middleware('admin:admin');
-// Route::get('/admin/faq/edit/{id}', [AdminFaqController::class,'edit'])->name('admin_faq_edit')->middleware('admin:admin');
-// Route::post('/admin/faq/update/{id}', [AdminFaqController::class,'update'])->name('admin_faq_update')->middleware('admin:admin');
-// Route::get('/admin/faq/delete/{id}', [AdminFaqController::class,'delete'])->name('admin_faq_delete')->middleware('admin:admin');
+Route::get('/admin/faq/add', [AdminFaqController::class,'add'])->name('admin_faq_add')->middleware('admin:admin');
+Route::post('/admin/faq/store', [AdminFaqController::class,'store'])->name('admin_faq_store')->middleware('admin:admin');
+Route::get('/admin/faq/edit/{id}', [AdminFaqController::class,'edit'])->name('admin_faq_edit')->middleware('admin:admin');
+Route::post('/admin/faq/update/{id}', [AdminFaqController::class,'update'])->name('admin_faq_update')->middleware('admin:admin');
+Route::get('/admin/faq/delete/{id}', [AdminFaqController::class,'delete'])->name('admin_faq_delete')->middleware('admin:admin');
