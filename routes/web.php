@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\AboutController;
 use App\Http\Controllers\Front\BlogController;
+
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminProfileController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\Admin\AdminSlideController;
 use App\Http\Controllers\Admin\AdminFeatureController;
 use App\Http\Controllers\Admin\AdminTestimonialController;
 use App\Http\Controllers\Admin\AdminPostController;
+use App\Http\Controllers\Admin\AdminPhotoController;
 
 /* Front */
 Route::get('/',[HomeController::class,'index'])->name('home');
@@ -70,3 +72,11 @@ Route::post('/admin/post/store', [AdminPostController::class,'store'])->name('ad
 Route::get('/admin/post/edit/{id}', [AdminPostController::class,'edit'])->name('admin_post_edit')->middleware('admin:admin');
 Route::post('/admin/post/update/{id}', [AdminPostController::class,'update'])->name('admin_post_update')->middleware('admin:admin');
 Route::get('/admin/post/delete/{id}', [AdminPostController::class,'delete'])->name('admin_post_delete')->middleware('admin:admin');
+
+/* Photo */
+Route::get('/admin/photo/view', [AdminPhotoController::class,'index'])->name('admin_photo_view')->middleware('admin:admin');
+Route::get('/admin/photo/add', [AdminPhotoController::class,'add'])->name('admin_photo_add')->middleware('admin:admin');
+Route::post('/admin/photo/store', [AdminPhotoController::class,'store'])->name('admin_photo_store')->middleware('admin:admin');
+// Route::get('/admin/photo/edit/{id}', [AdminPhotoController::class,'edit'])->name('admin_photo_edit')->middleware('admin:admin');
+// Route::post('/admin/photo/update/{id}', [AdminPhotoController::class,'update'])->name('admin_photo_update')->middleware('admin:admin');
+// Route::get('/admin/photo/delete/{id}', [AdminPhotoController::class,'delete'])->name('admin_photo_delete')->middleware('admin:admin');
