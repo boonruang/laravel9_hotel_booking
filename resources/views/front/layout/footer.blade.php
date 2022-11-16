@@ -7,6 +7,7 @@
                     <ul class="useful-links">
                         <li><a href="rooms.html">Rooms & Suites</a></li>
                         <li><a href="{{route('photo_gallery')}}">Photo Gallery</a></li>
+                        <li><a href="{{route('video_gallery')}}">Video Gallery</a></li>
                         <li><a href="{{route('blog')}}">Blog</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
@@ -20,7 +21,9 @@
                         @if ($global_page_data->terms_status == 1)
                         <li><a href="{{route('terms')}}">Terms and Conditions</a></li>
                         @endif
-                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        @if($global_page_data->privacy_status == 1)
+                        <li><a href="{{route('privacy')}}">Privacy Policy</a></li>
+                        @endif
                         <li><a href="{{route('faq')}}">FAQ</a></li>
                     </ul>
                 </div>

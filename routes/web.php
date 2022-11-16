@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\AdminVideoController;
 use App\Http\Controllers\Admin\AdminFaqController;
 use App\Http\Controllers\Admin\AdminPageController;
 use App\Http\Controllers\Front\TermsController;
+use App\Http\Controllers\Front\PrivacyController;
 
 /* Front */
 Route::get('/',[HomeController::class,'index'])->name('home');
@@ -30,6 +31,7 @@ Route::get('/photo-gallery',[PhotoController::class,'index'])->name('photo_galle
 Route::get('/video-gallery',[VideoController::class,'index'])->name('video_gallery');
 Route::get('/faq',[FaqController::class,'index'])->name('faq');
 Route::get('/terms-and-conditions',[TermsController::class,'index'])->name('terms');
+Route::get('/privacy-policy',[PrivacyController::class,'index'])->name('privacy');
 
 /* Admin */
 
@@ -113,5 +115,8 @@ Route::get('/admin/faq/delete/{id}', [AdminFaqController::class,'delete'])->name
 Route::get('/admin/page/about', [AdminPageController::class,'about'])->name('admin_page_about')->middleware('admin:admin');
 Route::post('/admin/page/about/update', [AdminPageController::class,'about_update'])->name('admin_page_about_update')->middleware('admin:admin');
 
-Route::get('/admin/page/terms', [AdminPageController::class,'terms'])->name('admin_terms_about')->middleware('admin:admin');
-Route::post('/admin/page/terms/update', [AdminPageController::class,'terms_update'])->name('admin_terms_about_update')->middleware('admin:admin');
+Route::get('/admin/page/terms', [AdminPageController::class,'terms'])->name('admin_page_terms')->middleware('admin:admin');
+Route::post('/admin/page/terms/update', [AdminPageController::class,'terms_update'])->name('admin_page_terms_update')->middleware('admin:admin');
+
+Route::get('/admin/page/privacy', [AdminPageController::class,'privacy'])->name('admin_page_privacy')->middleware('admin:admin');
+Route::post('/admin/page/privacy/update', [AdminPageController::class,'privacy_update'])->name('admin_page_privacy_update')->middleware('admin:admin');
