@@ -110,3 +110,6 @@ Route::get('/admin/faq/delete/{id}', [AdminFaqController::class,'delete'])->name
 /* Page */
 Route::get('/admin/page/about', [AdminPageController::class,'about'])->name('admin_page_about')->middleware('admin:admin');
 Route::post('/admin/page/about/update', [AdminPageController::class,'about_update'])->name('admin_page_about_update')->middleware('admin:admin');
+
+Route::get('/admin/page/terms', [AdminPageController::class,'terms'])->name('admin_terms_about')->middleware('admin:admin');
+Route::post('/admin/page/terms/update', [AdminPageController::class,'terms_update'])->name('admin_terms_about_update')->middleware('admin:admin');
