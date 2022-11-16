@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminPhotoController;
 use App\Http\Controllers\Admin\AdminVideoController;
 use App\Http\Controllers\Admin\AdminFaqController;
+use App\Http\Controllers\Admin\AdminPageController;
 
 /* Front */
 Route::get('/',[HomeController::class,'index'])->name('home');
@@ -105,3 +106,7 @@ Route::post('/admin/faq/store', [AdminFaqController::class,'store'])->name('admi
 Route::get('/admin/faq/edit/{id}', [AdminFaqController::class,'edit'])->name('admin_faq_edit')->middleware('admin:admin');
 Route::post('/admin/faq/update/{id}', [AdminFaqController::class,'update'])->name('admin_faq_update')->middleware('admin:admin');
 Route::get('/admin/faq/delete/{id}', [AdminFaqController::class,'delete'])->name('admin_faq_delete')->middleware('admin:admin');
+
+/* Page */
+Route::get('/admin/page/about', [AdminPageController::class,'about'])->name('admin_page_about')->middleware('admin:admin');
+Route::post('/admin/page/about/update', [AdminPageController::class,'about_update'])->name('admin_page_about_update')->middleware('admin:admin');
