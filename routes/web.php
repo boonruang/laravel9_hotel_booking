@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\AdminPhotoController;
 use App\Http\Controllers\Admin\AdminVideoController;
 use App\Http\Controllers\Admin\AdminFaqController;
 use App\Http\Controllers\Admin\AdminPageController;
+use App\Http\Controllers\Front\TermsController;
 
 /* Front */
 Route::get('/',[HomeController::class,'index'])->name('home');
@@ -28,6 +29,7 @@ Route::get('/post/{id}',[BlogController::class,'single_post'])->name('post');
 Route::get('/photo-gallery',[PhotoController::class,'index'])->name('photo_gallery');
 Route::get('/video-gallery',[VideoController::class,'index'])->name('video_gallery');
 Route::get('/faq',[FaqController::class,'index'])->name('faq');
+Route::get('/terms-and-conditions',[TermsController::class,'index'])->name('terms');
 
 /* Admin */
 
