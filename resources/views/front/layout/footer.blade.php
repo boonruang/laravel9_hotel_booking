@@ -11,7 +11,9 @@
                         @if ($global_page_data->video_gallery_status == 1)
                         <li><a href="{{route('photo_gallery')}}">{{$global_page_data->video_gallery_heading}}</a></li>
                         @endif
-                        <li><a href="{{route('blog')}}">Blog</a></li>
+                        @if ($global_page_data->blog_status == 1)
+                        <li><a href="{{route('blog')}}">{{$global_page_data->blog_heading}}</a></li>
+                        @endif
                         @if ($global_page_data->contact_status == 1)
                         <li><a href="{{route('contact')}}">Contact</a></li>
                         @endif

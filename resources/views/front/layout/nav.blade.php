@@ -65,9 +65,12 @@
 
                         @endif
 
+                        @if ($global_page_data->blog_status == 1)
                         <li class="nav-item">
-                            <a href="{{route('blog')}}" class="nav-link">Blog</a>
+                            <a href="{{route('blog')}}" class="nav-link">{{$global_page_data->blog_heading}}</a>
                         </li>
+                        @endif
+
                         @if ($global_page_data->contact_status == 1)
                         <li class="nav-item">
                             <a href="{{route('contact')}}" class="nav-link">{{$global_page_data->contact_heading}}</a>
