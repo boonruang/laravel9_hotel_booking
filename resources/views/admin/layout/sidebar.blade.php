@@ -29,6 +29,12 @@
                     <li class="{{ Request::is('admin/page/faq') ? 'active' : ''}}"><a class="nav-link" href="{{route('admin_page_faq')}}"><i class="fa fa-angle-right"></i>FAQ</a></li>                      
 
                     <li class="{{ Request::is('admin/page/blog') ? 'active' : ''}}"><a class="nav-link" href="{{route('admin_page_blog')}}"><i class="fa fa-angle-right"></i>Blog</a></li>                         
+
+                    <li class="{{ Request::is('admin/page/cart') ? 'active' : ''}}"><a class="nav-link" href="{{route('admin_page_cart')}}"><i class="fa fa-angle-right"></i>Cart</a></li>                         
+
+                    <li class="{{ Request::is('admin/page/checkout') ? 'active' : ''}}"><a class="nav-link" href="{{route('admin_page_checkout')}}"><i class="fa fa-angle-right"></i>Checkout</a></li>                         
+
+                    <li class="{{ Request::is('admin/page/payment') ? 'active' : ''}}"><a class="nav-link" href="{{route('admin_page_payment')}}"><i class="fa fa-angle-right"></i>Payment</a></li>                         
                 </ul>
             </li>
 
