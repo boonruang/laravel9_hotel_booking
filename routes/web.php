@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\AdminFaqController;
 use App\Http\Controllers\Admin\AdminPageController;
 use App\Http\Controllers\Front\TermsController;
 use App\Http\Controllers\Front\PrivacyController;
+use App\Http\Controllers\Front\ContactController;
 
 /* Front */
 Route::get('/',[HomeController::class,'index'])->name('home');
@@ -32,6 +33,7 @@ Route::get('/video-gallery',[VideoController::class,'index'])->name('video_galle
 Route::get('/faq',[FaqController::class,'index'])->name('faq');
 Route::get('/terms-and-conditions',[TermsController::class,'index'])->name('terms');
 Route::get('/privacy-policy',[PrivacyController::class,'index'])->name('privacy');
+Route::get('/contact',[ContactController::class,'index'])->name('contact');
 
 /* Admin */
 

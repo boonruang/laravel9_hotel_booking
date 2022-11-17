@@ -9,7 +9,9 @@
                         <li><a href="{{route('photo_gallery')}}">Photo Gallery</a></li>
                         <li><a href="{{route('video_gallery')}}">Video Gallery</a></li>
                         <li><a href="{{route('blog')}}">Blog</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        @if ($global_page_data->contact_status == 1)
+                        <li><a href="{{route('contact')}}">Contact</a></li>
+                        @endif
                     </ul>
                 </div>
             </div>
