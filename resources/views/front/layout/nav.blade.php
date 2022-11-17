@@ -47,9 +47,11 @@
                         <li class="nav-item">
                             <a href="javascript:void;" class="nav-link dropdown-toggle">Gallery</a>
                             <ul class="dropdown-menu">
+                                @if ($global_page_data->photo_gallery_status == 1)
                                 <li class="nav-item">
-                                    <a href="{{route('photo_gallery')}}" class="nav-link">Photo Gallery</a>
+                                    <a href="{{route('photo_gallery')}}" class="nav-link">{{$global_page_data->photo_gallery_heading}}</a>
                                 </li>
+                                @endif
                                 <li class="nav-item">
                                     <a href="{{route('video_gallery')}}" class="nav-link">Video Gallery</a>
                                 </li>
