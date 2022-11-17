@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-@section('heading','Edit Terms and Conditions Page')
+@section('heading','Edit Photo Gallery Page')
 
 @section('main_content')
 <div class="section-body">
@@ -8,25 +8,22 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{route('admin_page_privacy_update')}}" method="post">
+                    <form action="{{route('admin_page_photo_gallery_update')}}" method="post">
                         @csrf
                         <div class="row">
                             <div class="col-md-12">
                                 
                                 <div class="mb-4">
                                     <div></div>
-                                    <label class="form-label">Privacy Heading *</label>
-                                    <input type="text" class="form-control" name="privacy_heading" value="{{$page_data->privacy_heading}}">
+                                    <label class="form-label">Photo Gallery Heading *</label>
+                                    <input type="text" class="form-control" name="photo_gallery_heading" value="{{$page_data->photo_gallery_heading}}">
                                 </div>                                
-                                <div class="mb-4">
-                                    <label class="form-label">Privacy Content *</label>
-                                    <textarea name="privacy_content" class="form-control snote" cols="30" rows="10">{{$page_data->privacy_content}}</textarea>
-                                </div>
+
                                 <div class="mb-4">
                                     <label class="form-label">Status *</label>
-                                    <select name="privacy_status" class="form-control">
-                                        <option value="1" @if ($page_data->privacy_status == 1) selected  @endif>Show</option>
-                                        <option value="0" @if ($page_data->privacy_status == 0) selected  @endif>Hide</option>
+                                    <select name="photo_gallery_status" class="form-control">
+                                        <option value="1" @if ($page_data->photo_gallery_status == 1) selected  @endif>Show</option>
+                                        <option value="0" @if ($page_data->photo_gallery_status == 0) selected  @endif>Hide</option>
                                     </select>
                                 </div>                                
 
@@ -43,6 +40,5 @@
         </div>
     </div>
 </div>
-
  
 @endsection
