@@ -23,6 +23,8 @@
                     <li class="{{ Request::is('admin/page/contact') ? 'active' : ''}}"><a class="nav-link" href="{{route('admin_page_contact')}}"><i class="fa fa-angle-right"></i>Contact</a></li>    
 
                     <li class="{{ Request::is('admin/page/photo-galllery') ? 'active' : ''}}"><a class="nav-link" href="{{route('admin_page_photo_gallery')}}"><i class="fa fa-angle-right"></i>Photo gallery</a></li>    
+
+                    <li class="{{ Request::is('admin/page/video-galllery') ? 'active' : ''}}"><a class="nav-link" href="{{route('admin_page_video_gallery')}}"><i class="fa fa-angle-right"></i>Video gallery</a></li>    
                 </ul>
             </li>
 

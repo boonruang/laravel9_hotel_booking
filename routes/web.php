@@ -129,3 +129,6 @@ Route::post('/admin/page/contact/update', [AdminPageController::class,'contact_u
 
 Route::get('/admin/page/photo-gallery', [AdminPageController::class,'photo_gallery'])->name('admin_page_photo_gallery')->middleware('admin:admin');
 Route::post('/admin/page/photo-gallery/update', [AdminPageController::class,'photo_gallery_update'])->name('admin_page_photo_gallery_update')->middleware('admin:admin');
+
+Route::get('/admin/page/video-gallery', [AdminPageController::class,'video_gallery'])->name('admin_page_video_gallery')->middleware('admin:admin');
+Route::post('/admin/page/video-gallery/update', [AdminPageController::class,'video_gallery_update'])->name('admin_page_video_gallery_update')->middleware('admin:admin');
