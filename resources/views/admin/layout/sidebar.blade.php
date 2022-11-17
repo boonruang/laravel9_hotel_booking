@@ -25,6 +25,8 @@
                     <li class="{{ Request::is('admin/page/photo-galllery') ? 'active' : ''}}"><a class="nav-link" href="{{route('admin_page_photo_gallery')}}"><i class="fa fa-angle-right"></i>Photo gallery</a></li>    
 
                     <li class="{{ Request::is('admin/page/video-galllery') ? 'active' : ''}}"><a class="nav-link" href="{{route('admin_page_video_gallery')}}"><i class="fa fa-angle-right"></i>Video gallery</a></li>    
+
+                    <li class="{{ Request::is('admin/page/faq') ? 'active' : ''}}"><a class="nav-link" href="{{route('admin_page_faq')}}"><i class="fa fa-angle-right"></i>FAQ</a></li>                      
                 </ul>
             </li>
 
