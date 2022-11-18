@@ -61,7 +61,7 @@
     @endforeach
 @endif
 
-{{-- @if(session()->get('error'))
+@if(session()->get('error'))
 <script>
     iziToast.error({
     title: '',
@@ -69,7 +69,7 @@
     message: '{{ session()->get('error')}}',
     });
 </script>
-@endif --}}
+@endif
 
 @if(session()->get('success'))
 <script>
