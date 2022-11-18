@@ -39,6 +39,7 @@
                     <li class="{{ Request::is('admin/page/signup') ? 'active' : ''}}"><a class="nav-link" href="{{route('admin_page_signup')}}"><i class="fa fa-angle-right"></i>Sign Up</a></li>                         
 
                     <li class="{{ Request::is('admin/page/signin') ? 'active' : ''}}"><a class="nav-link" href="{{route('admin_page_signin')}}"><i class="fa fa-angle-right"></i>Sign In</a></li>    
+                    
                 </ul>
             </li>
 
@@ -56,7 +57,17 @@
 
             <li class="{{ Request::is('admin/faq/*') ? 'active' : ''}}"><a class="nav-link" href="{{route('admin_faq_view')}}"><i class="fa fa-hand-o-right"></i> <span>FAQ</span></a></li>
 
+            <li class="nav-item dropdown {{ Request::is('admin/subscriber/*') ? 'active' : ''}}">
+                <a href="#" class="nav-link has-dropdown"><i class="fa fa-hand-o-right"></i><span>Page</span></a>
+                <ul class="dropdown-menu">
 
+                    <li class="{{ Request::is('admin/subscriber/show') ? 'active' : ''}}"><a class="nav-link" href="{{route('admin_subscriber_show')}}"><i class="fa fa-angle-right"></i>All Subscriber</a></li>
+
+                    <li class=""><a class="nav-link" href=""><i class="fa fa-angle-right"></i>Send Email</a></li>
+
+                    
+                </ul>
+            </li>
 
         </ul>
     </aside>

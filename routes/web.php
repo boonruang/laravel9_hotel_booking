@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\AdminPhotoController;
 use App\Http\Controllers\Admin\AdminVideoController;
 use App\Http\Controllers\Admin\AdminFaqController;
 use App\Http\Controllers\Admin\AdminPageController;
+use App\Http\Controllers\Admin\AdminSubscriberController;
 
 
 /* Front */
@@ -157,3 +158,5 @@ Route::post('/admin/page/signup/update', [AdminPageController::class,'signup_upd
 
 Route::get('/admin/page/signin', [AdminPageController::class,'signin'])->name('admin_page_signin')->middleware('admin:admin');
 Route::post('/admin/page/signin/update', [AdminPageController::class,'signin_update'])->name('admin_page_signin_update')->middleware('admin:admin');
+
+Route::get('/admin/subscriber/show', [AdminSubscriberController::class,'show'])->name('admin_subscriber_show')->middleware('admin:admin');
