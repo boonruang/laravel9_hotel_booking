@@ -63,7 +63,7 @@
 
                     <li class="{{ Request::is('admin/subscriber/show') ? 'active' : ''}}"><a class="nav-link" href="{{route('admin_subscriber_show')}}"><i class="fa fa-angle-right"></i>All Subscriber</a></li>
 
-                    <li class=""><a class="nav-link" href=""><i class="fa fa-angle-right"></i>Send Email</a></li>
+                    <li class="{{ Request::is('admin/subscriber/send-email') ? 'active' : ''}}"><a class="nav-link" href="{{route('admin_subscriber_send_email')}}"><i class="fa fa-angle-right"></i>Send Email</a></li>
 
                     
                 </ul>

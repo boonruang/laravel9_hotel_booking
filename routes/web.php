@@ -160,3 +160,5 @@ Route::get('/admin/page/signin', [AdminPageController::class,'signin'])->name('a
 Route::post('/admin/page/signin/update', [AdminPageController::class,'signin_update'])->name('admin_page_signin_update')->middleware('admin:admin');
 
 Route::get('/admin/subscriber/show', [AdminSubscriberController::class,'show'])->name('admin_subscriber_show')->middleware('admin:admin');
+Route::get('/admin/subscriber/send-email', [AdminSubscriberController::class,'send_email'])->name('admin_subscriber_send_email')->middleware('admin:admin');
+Route::post('/admin/subscriber/send-email-submit', [AdminSubscriberController::class,'send_email_submit'])->name('admin_subscriber_send_email_submit')->middleware('admin:admin');
