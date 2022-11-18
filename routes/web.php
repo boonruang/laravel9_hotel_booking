@@ -7,6 +7,10 @@ use App\Http\Controllers\Front\BlogController;
 use App\Http\Controllers\Front\PhotoController;
 use App\Http\Controllers\Front\VideoController;
 use App\Http\Controllers\Front\FaqController;
+use App\Http\Controllers\Front\TermsController;
+use App\Http\Controllers\Front\PrivacyController;
+use App\Http\Controllers\Front\ContactController;
+use App\Http\Controllers\Front\SubscriberController;
 
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminLoginController;
@@ -19,9 +23,7 @@ use App\Http\Controllers\Admin\AdminPhotoController;
 use App\Http\Controllers\Admin\AdminVideoController;
 use App\Http\Controllers\Admin\AdminFaqController;
 use App\Http\Controllers\Admin\AdminPageController;
-use App\Http\Controllers\Front\TermsController;
-use App\Http\Controllers\Front\PrivacyController;
-use App\Http\Controllers\Front\ContactController;
+
 
 /* Front */
 Route::get('/',[HomeController::class,'index'])->name('home');
@@ -35,6 +37,8 @@ Route::get('/terms-and-conditions',[TermsController::class,'index'])->name('term
 Route::get('/privacy-policy',[PrivacyController::class,'index'])->name('privacy');
 Route::get('/contact',[ContactController::class,'index'])->name('contact');
 Route::post('/contact/send_email',[ContactController::class,'send_email'])->name('contact_send_email');
+Route::post('/subscriber/send_email',[SubscriberController::class,'send_email'])->name('subscriber_send_email');
+Route::get('/subscriber/verify/{email}/{token}',[SubscriberController::class,'verify'])->name('subscriber_verify');
 
 /* Admin */
 
