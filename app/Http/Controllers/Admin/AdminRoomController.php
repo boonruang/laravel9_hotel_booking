@@ -143,6 +143,8 @@ class AdminRoomController extends Controller
     public function delete($id)
     {
         $single_data = Room::where('id',$id)->first();
+        unlink(public_path('uploads/rooms/'.$single_data->featured_photo));
+
         $single_data->delete();
 
         return redirect()->back()->with('success','Room is Deleted successfully');
