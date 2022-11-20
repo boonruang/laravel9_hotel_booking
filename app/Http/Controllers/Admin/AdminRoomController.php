@@ -147,6 +147,47 @@ class AdminRoomController extends Controller
 
         $single_data->delete();
 
+        $room_photo_data = RoomPhoto::where('room_id',$id)->get();
+
+        foreach($room_photo_data as $item) {
+            unlink(public_path('uploads/rooms/'.$item->photo));
+            $item->delete();
+        }
+
         return redirect()->back()->with('success','Room is Deleted successfully');
-    }            
+    }       
+    
+    public function gallery($id)
+    {
+        $room_data = Room::where('id',$id)->first();
+        $room_photos = RoomPhoto::where('room_id',$id)->get();
+        return view('admin.room_gallery',compact('room_data','room_photos'));
+    }
+
+    public function gallery_store(Request $request,$id)
+    {
+        $request->validate([
+            'photo' => 'required|mimes:jpg,jpeg,png,gif|max:2048'
+        ]);  
+        
+        $ext = $request->file('photo')->extension();
+        $final_name = time().'.'.$ext;
+        $request->file('photo')->move(public_path('uploads/rooms/'),$final_name);
+        
+        $obj = new RoomPhoto();
+        $obj->room_id = $id;
+        $obj->photo = $final_name;
+        $obj->save();
+
+        return redirect()->back()->with('success','Photo is added successfully');
+    }
+
+    public function gallery_delete($id)
+    {
+        $single_data = RoomPhoto::where('id',$id)->first();
+        unlink(public_path('uploads/rooms/'.$single_data->photo));
+        $single_data->delete();
+
+        return redirect()->back()->with('success','Photo is deleted successfully');
+    }
 }

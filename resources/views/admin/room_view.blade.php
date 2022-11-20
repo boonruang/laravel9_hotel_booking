@@ -37,6 +37,7 @@
                                     <td>{{$row->price}}</td>
                                     <td class="pt_10 pb_10">
                                         <button class="btn btn-warning" data-toggle="modal" data-target="#exampleModal{{ $i }}">Detail</button>
+                                        <a href="{{route('admin_room_gallery',$row->id)}}" class="btn btn-success">Gallery</a>
                                         <a href="{{route('admin_room_edit',$row->id)}}" class="btn btn-primary">Edit</a>
                                         <a href="{{route('admin_room_delete',$row->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?');">Delete</a>
                                     </td>
