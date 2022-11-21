@@ -92,12 +92,16 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="main-header">Rooms and Suites</h2>
+                <h2 class="main-header">{{$global_page_data->room_heading}}</h2>
             </div>
         </div>
 
         <div class="row">
             @foreach ($room_all as $item)
+                
+                @if($loop->iteration > 4)
+                @break
+                @endif
             <div class="col-md-3">
                 <div class="inner">
                     <div class="photo">
@@ -120,7 +124,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="big-button">
-                    <a href="" class="btn btn-primary">See All Rooms</a>
+                    <a href="{{route('room')}}" class="btn btn-primary">See All Rooms</a>
                 </div>
             </div>
         </div>

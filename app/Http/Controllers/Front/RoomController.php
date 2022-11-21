@@ -11,6 +11,12 @@ use App\Models\Amenity;
 class RoomController extends Controller
 {
 
+    public function index()
+    {
+        $room_all = Room::paginate(12);
+        return view('front.room',compact('room_all'));
+    }
+
     public function single_room($id)
     {
         $single_room_data = Room::with('rRoomPhoto')->where('id',$id)->first();

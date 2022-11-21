@@ -177,6 +177,25 @@ class AdminPageController extends Controller
         return redirect()->back()->with('success','Data is updated successfully');
     }      
 
+    public function room()
+    {
+        $page_data = Page::where('id',1)->first();
+        return view('admin.page_room',compact('page_data'));
+    }
+    
+    public function room_update(Request $request)
+    {
+        $request->validate([
+            'room_heading' => 'required',
+        ]);
+
+        $obj = Page::where('id',1)->first();
+        $obj->room_heading = $request->room_heading;
+        $obj->update();
+
+        return redirect()->back()->with('success','Data is updated successfully');
+    }     
+
     public function cart()
     {
         $page_data = Page::where('id',1)->first();
