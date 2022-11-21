@@ -11,6 +11,7 @@ use App\Http\Controllers\Front\TermsController;
 use App\Http\Controllers\Front\PrivacyController;
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\SubscriberController;
+use App\Http\Controllers\Front\RoomController;
 
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminLoginController;
@@ -42,6 +43,8 @@ Route::get('/contact',[ContactController::class,'index'])->name('contact');
 Route::post('/contact/send_email',[ContactController::class,'send_email'])->name('contact_send_email');
 Route::post('/subscriber/send_email',[SubscriberController::class,'send_email'])->name('subscriber_send_email');
 Route::get('/subscriber/verify/{email}/{token}',[SubscriberController::class,'verify'])->name('subscriber_verify');
+
+Route::get('/room/{id}',[RoomController::class,'single_room'])->name('room_detail');
 
 /* Admin */
 
